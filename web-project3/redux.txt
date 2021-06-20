@@ -1,0 +1,24 @@
+Make Action Folder:
+    make Action File
+    make function,params=data,return data+type. 
+    (Opetional) We also can make seperate file for actions in action folder
+
+Make Reducer Folder:
+    make file
+        make initial state
+        make a function and pass parameter(state=initial,action)
+            Make Switch Case on action.type
+            return (...state,data)
+    make index.js
+        make function with combine reducer
+
+make file store
+    make a createStore(rootReducer,window)
+    make a function DataProvider with provider
+
+include in main index.js
+
+
+pass and get Data
+    Make Container with two function
+    and call that funcation in button, handlers
