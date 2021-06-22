@@ -2,8 +2,9 @@ import React, {useState} from 'react'
 import {Link , useHistory} from 'react-router-dom'
 import '../Login/Login.css'
 import axios from 'axios'
+
 const initialState = {
-    name:'',
+    Name:'',
     username:'',
     email: '',
     phoneNumber:'',
@@ -104,7 +105,7 @@ function Register() {
                 </div>
 
                 <div className="row">
-                    <button type="submit">Login</button>
+                    <button type="submit">Sing Up</button>
                 </div>
             </form>
             <p>Already an Account? <Link to="/login">login</Link></p>

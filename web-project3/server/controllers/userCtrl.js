@@ -60,7 +60,7 @@ const userCtrl = {
             res.cookie('refreshtoken', refresh_token, {
                 httpOnly: true,
                 path: '/user/refresh_token',
-                maxAge: 7*24*60*60*1000 // 7 days
+                maxAge: 1*24*60*60*1000 // 1 days
             })
 
             res.json({msg: "Login success!"})
@@ -86,10 +86,7 @@ const userCtrl = {
 
     getUserInfor: async (req, res) => {
         try {
-            console.log(req.user)
             const user = await User.findById(req.user.id).select('-password')
-            console.log(user)
-            
             res.json(user)
         } catch (err) {
             return res.status(500).json({msg: err.message})

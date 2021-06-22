@@ -15,6 +15,7 @@ export const fetchUser = async (token)=>{
 }
 
 export const dispatchGetUser = (res)=>{
+    console.log(res)
     return {
         type:ACTION.GET_USER,
         payload:{

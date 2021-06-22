@@ -9,7 +9,9 @@ import {dispatchedLogin, fetchUser, dispatchGetUser} from './redux/actions/authA
 import {useDispatch,useSelector} from 'react-redux'
 import { useEffect } from 'react';
 import axios from 'axios';
-
+//import AddCrs from './components/Courses/AddCrs';
+import AddCourse from './components/Courses/AddCourse';
+import courseScreen from './components/Courses/courseScreen';
 
 function App() {
   const dispatch = useDispatch()
@@ -38,13 +40,14 @@ function App() {
       getUser()
     }
   },[token, dispatch])
-
   return (
     <Router>
         <Header />
         <Route path = '/' component={Dashboard} exact />
         <Route path ="/login" exact component={Login}></Route>
         <Route path ="/register" exact component={Register}></Route>
+        <Route path ="/addCourse" exact component={AddCourse}></Route>
+        <Route path ="/detail/:id" exact component={courseScreen}></Route>
     </Router>
   );
 }

@@ -1,16 +1,12 @@
-//import express from 'express';
-//import bodyParser from 'body-parser';
-//import cors from 'cors';
-//import mongoose from 'mongoose';
-
 require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const route = require('./routes/routes');
 const cookieParser = require('cookie-parser');
 const fileUpload = require('express-fileupload');
+const route = require('./routes/routes');
+const coursesRoute = require('./routes/coursesRoute');
 
 const app = express();
 
@@ -23,6 +19,7 @@ app.use(cookieParser());
 app.use(fileUpload({useTempFiles:true}));
 
 app.use('/user', route);
+app.use('/course', coursesRoute);
 
 const Port = 5000 || process.env.PORT;
 
@@ -34,4 +31,4 @@ mongoose.connect(process.env.MONGODB_URL, {
     .then(() => app.listen(Port, () => { console.log("Server running on port"); console.log(Port); }))
     .catch((error) => { console.log(error.message) });
     
-
+    

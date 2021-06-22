@@ -1,11 +1,11 @@
 import React from 'react'
 import {Container} from 'react-bootstrap'
+import Courses from './Courses/Courses';
 
 const Dashboard = () => {
     return (
         <Container>
-
-        <h1>Hello Dashboard</h1>
+          <Courses />
       </Container>
     );
 }
