@@ -2,15 +2,14 @@ const User = require('../modelling/user')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
 
-
 const {CLIENT_URL} = process.env
 const userCtrl = {
     Register: async (req, res) => {
         try {
-            const { Name,username, email, phoneNumber,password } = req.body;
+            const { Name,username, email, phoneNumber,password, isAdmin } = req.body;
             // validation
             
-            if (!username || !Name || !password || !email || !phoneNumber)
+            if (!username || !Name || !password || !email || !phoneNumber || !isAdmin)
                 return res
                     .status(400)
                     .json({ errorMessage: "Please enter all required fields." });
@@ -30,7 +29,8 @@ const userCtrl = {
                 Name,
                 password:passwordHash,
                 email,
-                phoneNumber
+                phoneNumber,
+                isAdmin
             });
 
             
@@ -49,8 +49,8 @@ const userCtrl = {
     
     login: async (req, res) => {
         try {
-            const {email, password} = req.body
-            const user = await User.findOne({email})
+            const {email, password,isAdmin} = req.body
+            const user = await User.findOne({email:email,isAdmin:isAdmin})
             if(!user) return res.status(400).json({msg: "This email does not exist."})
 
             const isMatch = await bcrypt.compare(password, user.password)

@@ -3,6 +3,7 @@ import axios from 'axios'
 import { useSelector } from 'react-redux'
 import {Link} from 'react-router-dom'
 import './header.css'
+import MyMovie from './MyMovie.mp4';
 
 const Header = () => {
     const auth = useSelector(state=>state.auth)
@@ -14,8 +15,7 @@ const Header = () => {
                 <span><i class="fas fa-user"></i></span> {user.Name}<i className="fas fa-angle-down"></i>
             </Link>
             <ul className="dropdown">
-                <li><Link to="/image">Profile</Link></li>
-                <li><Link to="/addCourse">Add Course</Link></li>
+                <li><Link to="/profile">Profile</Link></li>
                 <li><Link to="/" onClick={handleLogout}>Logout</Link></li>
             </ul>
         </li>
@@ -30,26 +30,37 @@ const Header = () => {
             window.location.href = "/";
         }
     }
-    const transForm = {
-        transform: isLogged ? "translateY(-5px)" : 0
-    }
+
     
     return (
-        <header>
-            <div className="logo">
-                <h1><Link to="/">KOODI</Link></h1>
-            </div>
-
-            <ul style={transForm}>
-                <li><Link to="/"><i className="fas fa-shopping-cart"></i> Cart</Link></li>
-                {
-                    isLogged
-                    ? userLink()
-                    :<li><Link to="/login"><i className="fas fa-user"></i> Sign in</Link></li>
-                }
-                
-            </ul>
-        </header>
+        <div className='MainDiv'>
+        <video  className='myvideo' autoPlay loop muted>
+        {/* autoPlay loop muted */}
+             <source src={MyMovie} type="video/mp4"/>
+        </video>
+        <div id='logo'><Link to="/" ></Link></div>     
+        <nav className='navBar'>
+               
+                <div id='divlinks'>
+                    <a href='www.google.com'>How we work</a>
+                    <a href='www.google.com'>About</a>
+                    <a href='www.google.com'>Pricing</a>
+                </div>
+         </nav>   
+         <div id='login'>
+             { 
+             isLogged? userLink():
+             <button className='courses-button'><Link to="/login" style={{textDecoration:'none'}}>Login</Link></button>}
+                {/* <button className='courses-button'><Link to="/login">Try Koodi for free</Link></button> */}
+             
+         </div> 
+        <div className='videoContent'>
+            <p id='heading'>Learn To Code By Building Games</p>
+            <h4>Enjoy 1:1 session with fun projects and logic building exercises. Learn to code by making interactive games online and showcasing them to friends and family!</h4>
+            <button  className='courses-button'>Explore Courses</button>
+        </div>
+        
+    </div>
     )
 }
 

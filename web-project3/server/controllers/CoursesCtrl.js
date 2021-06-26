@@ -36,8 +36,33 @@ const CoursesCtrl = {
         } catch (err) {
             return res.status(500).json({msg: err.message})
         }
-    }
+    },
+    deleteCourse:async (req,res)=>{
+        try {
+            await course.findByIdAndDelete(req.params.id)
+            .then(course => res.json('Course deleted'))
 
+        } catch (err) {
+            return res.status(500).json({msg: err.message})
+        }
+    },
+    updateCourse: async (req, res) => {
+        try {
+            await course.findById(req.params.id)
+            .then(cours => {
+                cours.name=req.body.name;
+                cours.description=req.body.description;
+                cours.teacherName = req.body.teacherName;
+                cours.teacherIntroduction = req.body.teacherIntroduction;
+                cours.teacherQualification = req.body.teacherQualification;
+                cours.image=req.body.image;
+                cours.save().then(() => res.json('Exercise updated !'))
+            })
+        } catch (err) {
+            console.error(err);
+            res.status(500).send();
+        }
+    }
 }
 
 module.exports = CoursesCtrl

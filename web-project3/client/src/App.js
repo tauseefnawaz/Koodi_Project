@@ -1,5 +1,4 @@
 import './App.css';
-import Header from './components/Header'
 import Dashboard from './components/Dashboard';
 import {BrowserRouter as Router,Route} from 'react-router-dom'
 import Login from './components/Login/Login';
@@ -11,7 +10,10 @@ import { useEffect } from 'react';
 import axios from 'axios';
 //import AddCrs from './components/Courses/AddCrs';
 import AddCourse from './components/Courses/AddCourse';
-import courseScreen from './components/Courses/courseScreen';
+import CourseScreen from './components/Courses/CourseScreen';
+import ViewCourses from './components/Courses/ViewCourses';
+import UpdateCourse from './components/Courses/UpdateCourse';
+import UserProfile from './components/Courses/UserProfile';
 
 function App() {
   const dispatch = useDispatch()
@@ -42,12 +44,14 @@ function App() {
   },[token, dispatch])
   return (
     <Router>
-        <Header />
         <Route path = '/' component={Dashboard} exact />
         <Route path ="/login" exact component={Login}></Route>
         <Route path ="/register" exact component={Register}></Route>
         <Route path ="/addCourse" exact component={AddCourse}></Route>
-        <Route path ="/detail/:id" exact component={courseScreen}></Route>
+        <Route path ="/detail/:id" exact component={CourseScreen}></Route>
+        <Route path ="/ViewCourse" exact component={ViewCourses}></Route>
+        <Route path ="/updatePage/:id" exact component={UpdateCourse}></Route>
+        <Route path ="/profile" exact component={UserProfile}></Route>
     </Router>
   );
 }

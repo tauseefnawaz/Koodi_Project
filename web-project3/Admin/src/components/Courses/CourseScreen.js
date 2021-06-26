@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import { Row, Col, Image, ListGroup, Card, Button } from 'react-bootstrap'
+import { Row, Col, Image, ListGroup, Card, Button, Container} from 'react-bootstrap'
 
 class courseScreen extends React.Component {
     match = null;
@@ -10,7 +10,8 @@ class courseScreen extends React.Component {
         teacherName: '',
         teacherIntroduction: '',
         teacherQualification: '',
-        image: ''
+        image: '',
+        startDate:null
     }
     constructor(props) {
         super(props)
@@ -28,7 +29,8 @@ class courseScreen extends React.Component {
                 teacherName: course.teacherName,
                 teacherIntroduction: course.teacherIntroduction,
                 teacherQualification: course.teacherQualification,
-                image: course.image
+                image: course.image,
+                startDate:course.startDate
             })
             console.log("Course Recieve");
         }).catch(() => {
@@ -40,21 +42,13 @@ class courseScreen extends React.Component {
     }
     render() {
         return (
+            <Container>
             <Row>
                 <Col md={6}>
-                    <Image src={this.state.image} alt={this.state.name} fluid />
+                    <img src={this.state.image} alt={this.state.name} width="100%" />
                 </Col>
 
-                <Col md={3}>
-                    <ListGroup variant='flush'>
-                        <ListGroup.Item>
-                            <h3>{this.state.name}</h3>
-                        </ListGroup.Item>
-                        <ListGroup.Item>
-                            Description: {this.state.description}
-                        </ListGroup.Item>
-                    </ListGroup>
-                </Col>
+                <br></br>
                 <Col md={3}>
                     <Card>
                         <ListGroup variant='flush'>
@@ -78,8 +72,44 @@ class courseScreen extends React.Component {
                     </Card>
                 </Col>
             </Row>
+            <Row>
+                <Col md={6} className="float-left">
+                    <ListGroup variant='flush'>
+                        <ListGroup.Item>
+                            <h3>{this.state.name}</h3>
+                        </ListGroup.Item>
+                        <ListGroup.Item>
+                            Description: {this.state.description}
+                        </ListGroup.Item>
+                    </ListGroup>
+                </Col>
+                <Col md={6} className="float-left">
+                    <ListGroup variant='flush'>
+                        <ListGroup.Item>
+                            <h3>{this.state.teacherName}</h3>
+                        </ListGroup.Item>
+                        <ListGroup.Item>
+                            Description: {this.state.teacherIntroduction}
+                        </ListGroup.Item>
+                    </ListGroup>
+                </Col>
+            </Row>
+            </Container>
         )
     }
 }
 
 export default courseScreen
+
+/**
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+
+
+
+ * 
+ */

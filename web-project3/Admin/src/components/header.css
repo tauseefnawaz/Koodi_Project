@@ -1,0 +1,91 @@
+
+/* --------- Dropdown ---------- */
+.drop-nav{
+    position: relative;
+    margin: 10px;
+}
+.drop-nav a{
+    text-decoration: none;
+    text-transform: capitalize;
+    overflow: hidden;
+    font-size: large;
+    color:seashell;
+    opacity: 1;
+}
+.drop-nav .dropdown{
+    position: absolute;
+    background: slategray;
+    width: 100%;
+    width: calc(100% + 30px);
+    top: 25px;
+    display: none;
+    border:2px solid black;
+    border-radius: 5px ;
+}
+.drop-nav .dropdown li{
+    display: block;
+}
+.drop-nav:hover .dropdown{
+    display: block;
+}
+
+.search {
+    padding-right: 200px;
+    width: 550px;
+    position: relative;
+    box-shadow: 0 0 40px rgba(51, 51, 51, .1)
+}
+  
+  .search input {
+    height: 40px;
+    text-indent: 25px;
+    border: 2px solid #d6d4d4
+  }
+  
+  .search input:focus {
+    box-shadow: none;
+    border: 2px solid blue
+  }
+  
+  .search .fas-search {
+    position: absolute;
+    top: 10px;
+    left: 16px
+  }
+  
+  .search button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    height: 40px;
+    width: 100px;
+    color:black;
+    background-color: white
+  }
+
+  .topnav input[type=text] {
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 17px;
+    border: none;
+  }
+  
+  .topnav .search-container button {
+    float: right;
+    padding: 6px 10px;
+    margin-top: 8px;
+    margin-right: 16px;
+    background: #ddd;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .topnav .search-container button:hover {
+    background: #ccc;
+  }
+
+  .search_input {
+      width: 200px;
+      padding:5px
+  }

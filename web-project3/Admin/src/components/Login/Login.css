@@ -1,0 +1,91 @@
+.login_page .login-h2{
+    text-transform: uppercase;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    margin-top:20px;
+    letter-spacing: 1.5px;
+}
+.login_page h5{
+    text-align: start;
+    margin-left: 25%;
+}
+.login_img{
+    height:80px;
+    width:90px;
+}
+.login_page input{
+    width: 50%;
+    height: 45px;
+    margin: 10px 0;
+    margin-left:10px;
+
+    outline: none;
+    padding: 0 10px;
+}
+
+
+.login-button{
+    width: 150px;
+    padding: 5px 0;
+    color: black;
+    background: wheat;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    justify-content: center;
+    border-radius: 50px;
+    margin-top:10px;
+}
+.login_page p{
+    margin: 10px 0;
+}
+.login_page a{
+    color:white;
+    font-weight: 600;
+}
+
+.errMsg{
+    background: rgb(214, 10, 10);
+    color: #fff9;
+    text-align: center;
+    padding: 10px 0;
+    letter-spacing: 1.3px;
+}
+
+.successMsg{
+    background: rgb(9, 158, 54);
+    color: #fff9;
+    text-align: center;
+    padding: 10px 0;
+    letter-spacing: 1.3px;
+} 
+
+.login_page{
+    min-width:fit-content;
+    width: 800px;
+    margin: 0 auto;
+    margin-top:8vh;
+    height:630px;
+    color:white;
+    background-color: black;
+    text-align: center;
+    padding-top:30px;
+    
+}
+
+.login_page  h6{
+text-align: start;
+margin-left: 25%;
+}
+.login_page  label{
+    text-align: start;
+    margin-left: 25%;
+    }
+.register-h2{
+    padding:0;
+    padding-bottom:5px;
+    text-transform: uppercase;
+    font-size: 2rem;
+    margin:0;
+    letter-spacing: 1.5px;
+
+}

@@ -3,8 +3,9 @@ import { Link, useHistory } from 'react-router-dom'
 import './Login.css'
 import axios from 'axios'
 import { dispatchedLogin } from '../../redux/actions/authAction'
-import {useDispatch} from 'react-redux'
+import locksmith1 from  '../../images/locksmith1.png';
 
+import {useDispatch} from 'react-redux'
 const initialState = {
     email: '',
     password: '',
@@ -43,31 +44,33 @@ function Login() {
         }
     }
     return (
-        <div className="login_page">
-            <h2>Login</h2>
+     
+        <div className='login_page'>
+            <img className="login_img" src={locksmith1} alt=''></img>
+            <h2 className='login-h2v'>Login</h2>
+                 {err && showErrMsg(err)}
+             {success && showSuccessMsg(success)} 
 
-            {err && showErrMsg(err)}
-            {success && showSuccessMsg(success)} 
+             <form onSubmit={handleSubmit}>
+                 <div>
+                     <h5>Email Address</h5>
+                     <input type="text" placeholder="Enter email address" id="email"
+                     value={email} name="email" onChange={handleChangeInput} />
+                 </div>
 
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor="email">Email Address</label>
-                    <input type="text" placeholder="Enter email address" id="email"
-                    value={email} name="email" onChange={handleChangeInput} />
-                </div>
+                 <div>
+                 <h5>Password </h5>
+                     <input type="password" placeholder="Enter password" id="password"
+                     value={password} name="password" onChange={handleChangeInput} />
+                 </div>
 
-                <div>
-                    <label htmlFor="password">Password</label>
-                    <input type="password" placeholder="Enter password" id="password"
-                    value={password} name="password" onChange={handleChangeInput} />
-                </div>
-
-                <div className="row">
-                    <button type="submit">Login</button>
-                </div>
-            </form>
-            <p>New Customer? <Link to="/register">Register</Link></p>
+                 
+                     <button className='login-button' type="submit">Login</button>
+                 
+             </form>
+             <p>New Customer? <Link to="/register">Register</Link></p>
         </div>
+        
     )
 }
 
